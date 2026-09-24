@@ -1,0 +1,39 @@
+---
+description: UI rules for the Controle de Brindes system (views, CSS, JS)
+globs: resources/views/**,public/assets/**
+alwaysApply: true
+---
+
+# Controle de Brindes — UI rules
+
+You build the **UI only**. The backend (PHP API, database, `public/index.php`, `public/assets/js/api.js`) is done and tested;
+do NOT edit `app/`, `database/`, `config/`, `bin/`, `tests/`, `public/index.php` or `public/assets/js/api.js`.
+Read `docs/api-contract.md` before building any screen — it has every endpoint, JSON shape, error code and the view contract.
+
+## Stack (no build step, no CDN)
+- Bootstrap 5.3 + Bootstrap Icons + Alpine.js 3 + Chart.js 4 + signature_pad (Step 2), **downloaded into `public/assets/vendor/`**.
+  External CDNs are blocked by the Content-Security-Policy (`default-src 'self'`) and the system may run on a corporate intranet.
+- Views are PHP files in `resources/views/` (see contract §2). Layouts: `layouts/app.php` (sidebar + top bar), `layouts/auth.php`.
+- All data comes from the API through the global `Api` object (`public/assets/js/api.js`): `Api.get/post/put/del/upload`,
+  `Api.newKey()`, `Api.fmt.money/date/datetime/number/qty`, `Api.labels.stockLevel/movementType/itemStatus/requestStatus`.
+
+## Must-follow rules
+1. PT-BR interface, Brazilian formats: `R$ 1.234,56`, `14/09/2026`, `14/09/2026 10:05` (use `Api.fmt`).
+2. Mobile first: every screen must work at **360 px** (tables become cards or scroll horizontally; forms single column; big tap targets).
+   The CD staff use phones.
+3. Escape everything: in PHP use `e()`; in JS never `innerHTML` with API data — use Alpine `x-text` / `textContent`.
+4. Theme colors from CSS variables: `--brand-primary` is printed by the layout from `$app['settings']['primary_color']`
+   (the company rebrands in Configurações). Never hard-code the brand color.
+5. Menu comes ready in `$app['menu']` (already filtered by permission). Icons are Bootstrap Icons names. `soon: true` → badge "em breve".
+   Hide buttons the user can't use with `can('permission')` (PHP) or `$app['permissions']`; the server enforces them anyway.
+6. Stock forms (entrada/saída/ajuste): generate `Api.newKey()` when the form opens, send it as `idempotencyKey`,
+   disable the submit button while sending, show the new balance on success, then reset the form with a NEW key.
+7. Errors: `e.code === 'VALIDATION_ERROR'` → show `e.fields[name]` under each input (`is-invalid` + `invalid-feedback`);
+   otherwise a toast with `e.message` (messages are already PT-BR).
+8. Every list: search box, filters, pagination from `meta`, empty state, loading state (skeleton/spinner), error state.
+9. Status/level badges use the shared labels/colors: stock `ok` green / `low` amber / `zero` red; show **available** as the main number.
+10. Deletion UX: "Inativar", "Excluir" (→ lixeira, confirm dialog) and, inside the trash view (`?trashed=1`), "Restaurar" and
+    "Excluir definitivamente" (modal where the user types the code/name/e-mail, sent as `{confirm}`).
+11. Few clicks: the most common daily action of each screen is one primary button. Show the next required action clearly.
+12. White-label: no developer names, credits, "made by", or external links anywhere. Neutral placeholder logo.
+13. Accessibility basics: labels on inputs, focus visible, contrast AA, `aria-live` region for toasts.

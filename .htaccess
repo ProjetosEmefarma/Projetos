@@ -1,0 +1,11 @@
+# Used only when the WHOLE project folder is uploaded to the web root (e.g. public_html)
+# and the domain cannot point directly to /public. Blocks every internal folder/file.
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(app|bin|config|database|docs|resources|storage|tests|vendor)(/|$) - [F,L]
+    RewriteRule (^|/)\. - [F,L]
+    RewriteRule ^(composer\.(json|lock)|README\.md|CLAUDE\.md)$ - [F,L]
+    RewriteRule ^(?!public/)(.*)$ public/$1 [L]
+</IfModule>

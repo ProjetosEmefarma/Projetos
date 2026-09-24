@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>{{NOME_DA_EMPRESA}} — Controle de Brindes</title>
+  <style>
+    :root { --brand: #2563EB; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Segoe UI, system-ui, sans-serif; background: #0f172a; color: #0f172a; }
+    .slide { width: 960px; min-height: 540px; margin: 24px auto; background: #fff; padding: 56px 64px; border-radius: 8px; page-break-after: always; }
+    h1 { color: var(--brand); font-size: 32px; margin: 0 0 16px; }
+    h2 { font-size: 22px; margin: 0 0 12px; }
+    p, li { font-size: 18px; line-height: 1.45; }
+    .tag { display: inline-block; background: var(--brand); color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 13px; }
+    .muted { color: #64748b; }
+    table { border-collapse: collapse; width: 100%; }
+    td, th { border-bottom: 1px solid #e2e8f0; padding: 8px 6px; text-align: left; }
+    @media print { body { background: #fff; } .slide { margin: 0; border-radius: 0; box-shadow: none; } }
+  </style>
+</head>
+<body>
+<section class="slide">
+  <p class="tag">Uso interno</p>
+  <h1>Controle de Brindes</h1>
+  <p>{{NOME_DA_EMPRESA}}</p>
+  <p class="muted">Do Excel ao processo rastreável — solicitações, estoque no CD, eventos e protocolo digital.</p>
+</section>
+<section class="slide">
+  <h1>O problema</h1>
+  <ul>
+    <li>Equipe preenche planilha; o escritório acrescenta chamado, entrega e destinatário.</li>
+    <li>Estoque físico no <b>CD</b>, controle remoto no escritório — visita mensal vira correção.</li>
+    <li>Em eventos, protocolo A4 assinado se perde; Google Forms estourou o limite no pico.</li>
+  </ul>
+</section>
+<section class="slide">
+  <h1>A solução</h1>
+  <p>Sistema web no computador e no celular. Toda entrada, solicitação, aprovação, movimentação e entrega fica registrada. O que puder ser automático, é automático.</p>
+</section>
+<section class="slide">
+  <h1>Dois fluxos</h1>
+  <h2>Dia a dia</h2>
+  <p>O CD registra entrada e saída (com NF, se houver). Baixa de estoque no CD é pelo <b>Registrar saída</b>.</p>
+  <h2>TRADE (compra)</h2>
+  <p>TRADE ou gestor pede a compra (QR EME) → gestor informa o chamado se aprovar → a NF é anexada quando o brinde chega no CD → retirada com QR e assinatura.</p>
+  <h2>Evento</h2>
+  <p>Cota por indústria → Modo Evento no celular (poucos toques) → protocolo digital → e-mail com o que retirou e o saldo.</p>
+</section>
+<section class="slide">
+  <h1>Quem usa o quê</h1>
+  <table>
+    <tr><th>Perfil</th><th>Função</th></tr>
+    <tr><td>Administrador</td><td>Cadastros, usuários, ajustes, regras</td></tr>
+    <tr><td>TRADE / Gestor</td><td>Nova solicitação TRADE, cadastros, aprovar, relatórios</td></tr>
+    <tr><td>CD / Estoque</td><td>Recebimento, entrada/saída, QR, transferência — sem nova solicitação nem cadastros</td></tr>
+    <tr><td>TRADE</td><td>Pedir compra e acompanhar</td></tr>
+  </table>
+</section>
+<section class="slide">
+  <h1>Estoque confiável</h1>
+  <ul>
+    <li>Baixa automática na confirmação da entrega.</li>
+    <li>Não permite estoque negativo nem baixa duplicada.</li>
+    <li>Excluir vai para a lixeira; o histórico não some.</li>
+    <li>A visita mensal ao CD vira conferência (ajuste por contagem), não retrabalho.</li>
+  </ul>
+</section>
+<section class="slide">
+  <h1>Protocolo digital</h1>
+  <p>QR Code na solicitação TRADE. Assinatura na tela. PDF com número, QR e assinatura, enviado por e-mail. Comprovantes com filtro de data.</p>
+</section>
+<section class="slide">
+  <h1>O que o sistema responde</h1>
+  <ul>
+    <li>Quantos brindes temos e onde estão?</li>
+    <li>Quem solicitou, quem aprovou, para quem foi entregue e quando?</li>
+    <li>Qual departamento mais usa? O que está acabando?</li>
+    <li>Quanto saiu no período? Qual o histórico do item?</li>
+  </ul>
+</section>
+<section class="slide">
+  <h1>Como você opera</h1>
+  <p>Login próprio (seu e-mail). Incluir, editar, inativar e excluir com autonomia. Cores e logo da {{NOME_DA_EMPRESA}} em Configurações.</p>
+</section>
+<section class="slide">
+  <h1>Próximas fases (quando fizer sentido)</h1>
+  <p>SSO Microsoft, integração ERP/CRM, Power BI, modo offline no evento — quando fizer sentido (orçamento à parte).</p>
+</section>
+</body>
+</html>

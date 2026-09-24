@@ -1,0 +1,12 @@
+Produto: Controle de Brindes
+Versao: 2.0.0 (Autônomo / Local)
+Data da entrega: 2026-09-24
+Pacote: CONTROLE-BRINDES-v2.0.0-LOCAL-FINAL
+
+Destaques da Versão 2.0.0:
+- Sistema 100% autônomo e desvinculado de Git / Vercel
+- Reconciliação automática e rigorosa do livro-razão de estoque (StockService)
+- Correção do bug de saldo vs. movimentações exibidas
+- Hardening completo de segurança: CORS, CSP, CSRF, XSS, Sessões seguras sem chave fallback fraca
+- UI/UX modernizado com tipografia responsiva, micro-interações, suporte a temas e tabelas aprimoradas
+

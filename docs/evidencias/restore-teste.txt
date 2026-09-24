@@ -1,0 +1,13 @@
+Teste de restauração — Controle de Brindes
+==========================================
+date: 2026-09-18T10:56:41-03:00
+host: 127.0.0.1:3307
+test_database: brindes_restore_test
+tables_before: 29
+tables_after_drop: 0
+tables_after_restore: 29
+permissions: 36
+admin: admin@brindes.local
+dump_bytes: 50345
+sql_statements: 182
+result: PASS
